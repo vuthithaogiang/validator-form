@@ -113,12 +113,14 @@ function Validator(formSelector, options) {
             var rules = formRules[event.target.name];
 
             var errorMessage;
-            rules.find(function (rule) {
+
+            for( var rule of rules) {
                 errorMessage = rule(event.target.value);
-                return errorMessage;
+                if(errorMessage) break;
 
-            });
 
+            }
+            
             console.log(errorMessage);
 
             //xu li loi: hien thi ra UI
