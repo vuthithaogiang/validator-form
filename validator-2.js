@@ -1,11 +1,12 @@
 
-function Validator(formSelector, options) {
-    //ES5
-    if(!options) {
-        options = {};
-    }
 
 
+
+function Validator(formSelector) {
+
+    var _this = this;
+    console.log(_this);
+    
     function getParent(element, selector) {
 
         while (element.parentElement) {
@@ -159,11 +160,14 @@ function Validator(formSelector, options) {
 
     }
 
+   // console.log(this);
+
     // xu li hanh vi mac dinh submit form
 
     formElement.onsubmit = function (e){
         e.preventDefault();
 
+        
         var inputs = formElement.querySelectorAll('[name][rules]');
 
         var isFormValid = true;
@@ -180,7 +184,8 @@ function Validator(formSelector, options) {
 
         //khi ko loi
         if(isFormValid) {
-            if(typeof options.onSubmit === 'function'){
+            console.log(_this);
+            if(typeof _this.onSubmit === 'function'){
             
                 var enableInputs = formElement.querySelectorAll('[name]:not([disable])');
                 var formValues = Array.from(enableInputs).reduce(function (values, input) {
@@ -219,7 +224,7 @@ function Validator(formSelector, options) {
                 }, {});
 
 
-                options.onSubmit(formValues);
+                _this.onSubmit(formValues);
 
             }
             else{
@@ -230,8 +235,7 @@ function Validator(formSelector, options) {
     }
 }
 
-
-
+/*
 Validator('#register-form', {
     onSubmit: function (data){
 
@@ -241,3 +245,12 @@ Validator('#register-form', {
 
     }
 });
+
+*/
+
+// Constructor
+var form = new Validator('#register-form');
+
+form.onSubmit = function (formData){
+    console.log(formData);
+}
