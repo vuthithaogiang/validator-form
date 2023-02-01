@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator Form 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+    <div class="main">
+        <form action="" method="POST" class="form" id="register-form">
+            <h3 class="heading">Thanh vien dang ki</h3>
+            <p class="description">Cung nhau hoc lap trinh mien phi tai F8 ❤️</p>
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="fullname" class="form-label">full name</label>
+                <input type="text" name="fullname" rules="required" placeholder="ho ten" class="form-control" id="fullname"/>
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+
+                <label for="email" class="form-label">email</label>
+                <input type="text" name="email" rules="required|email" placeholder="abc@domain.com" class="form-control" id="email" />
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="pasword" class="form-label">password</label>
+                <input type="password" name="password" rules="required|min:6" class="form-control" placeholder="password" id="password" />
+                <span class="form-message"></span>
+
+            </div>
+
+            <button class="form-submit">Sign in</button>
+
+        </form>
+    </div>
+
+</body>
+<script src="/validator-2.js"></script>
+
+</html>
